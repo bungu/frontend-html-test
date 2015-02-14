@@ -1,0 +1,36 @@
+.b-progress {
+	width: 200px;
+	height: 13px;
+
+	border: 0;
+	border-radius: 13px;
+	background: #eee;
+	box-shadow: 0 1px 2px #ccc inset;
+
+
+	&__bar {
+		display: block;
+
+		width: 0;
+		height: 13px;
+
+		transition: width 0.3s;
+
+		border-radius: 13px;
+		background: #64c01c; /* IE fallback */
+		background: linear-gradient(to bottom, #a7f458 0%,#64c01c 52%,#8bda1a 91%,#6cd019 100%);
+	}
+
+	&:after {
+		content: attr(data-value) '%';
+
+		font: bold 10px/13px sans-serif;
+
+		display: block;
+
+		width: 100%;
+		margin-top: -13px;
+
+		text-align: center;
+	}
+}

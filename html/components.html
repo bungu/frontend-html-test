@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+	<title>Компоненты</title>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/page-components.css" />
+	<!--[if lte IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/page-components_ie.css" />
+	<![endif]-->
+</head>
+<body class="g-layout">
+
+<section class="b-components">
+	<article class="b-components__showcase b-components__showcase_light">
+		<header class="b-components__showcase__title">
+			Компоненты «Рейтинг» и «Кнопка» на светлом фоне
+		</header>
+		<section class="b-components__showcase__content">
+
+			<div class="b-rating b-rating_2">
+				<a onclick="return SetStar(this.parentNode, 1)" href="#" title="1" class="b-rating__star"></a>
+				<a onclick="return SetStar(this.parentNode, 2)" href="#" title="2" class="b-rating__star"></a>
+				<a onclick="return SetStar(this.parentNode, 3)" href="#" title="3" class="b-rating__star"></a>
+				<a onclick="return SetStar(this.parentNode, 4)" href="#" title="4" class="b-rating__star"></a>
+				<a onclick="return SetStar(this.parentNode, 5)" href="#" title="5" class="b-rating__star"></a>
+			</div>
+
+			<section class="b-components__showcase__toolbar">
+				<a onclick="return SetStar(document.querySelectorAll('.b-rating')[0], 0)" href="#" title="0" class="b-button">0</a>
+				<span onclick="return SetStar(document.querySelectorAll('.b-rating')[0], 3)" title="3" class="b-button" tabindex="0">3</span>
+				<button onclick="return SetStar(document.querySelectorAll('.b-rating')[0], 5)" title="5" class="b-button">5</button>
+			</section>
+
+		</section>
+	</article>
+
+	<article class="b-components__showcase b-components__showcase_dark">
+		<header class="b-components__showcase__title b-components__showcase__title_light">
+			Компоненты «Рейтинг» и «Кнопка» на тёмном фоне
+		</header>
+		<section class="b-components__showcase__content">
+
+			<div class="b-rating b-rating_2">
+				<a onclick="return SetStar(this.parentNode, 1)" href="#" title="1" class="b-rating__star"></a>
+				<a onclick="return SetStar(this.parentNode, 2)" href="#" title="2" class="b-rating__star"></a>
+				<a onclick="return SetStar(this.parentNode, 3)" href="#" title="3" class="b-rating__star"></a>
+				<a onclick="return SetStar(this.parentNode, 4)" href="#" title="4" class="b-rating__star"></a>
+				<a onclick="return SetStar(this.parentNode, 5)" href="#" title="5" class="b-rating__star"></a>
+			</div>
+
+			<section class="b-components__showcase__toolbar">
+				<a onclick="return SetStar(document.querySelectorAll('.b-rating')[1], 0)" href="#" title="0" class="b-button">0</a>
+				<span onclick="return SetStar(document.querySelectorAll('.b-rating')[1], 3)" title="3" class="b-button" tabindex="0">3</span>
+				<button onclick="return SetStar(document.querySelectorAll('.b-rating')[1], 5)" title="5" class="b-button">5</button>
+			</section>
+
+		</section>
+	</article>
+
+	<article class="b-components__showcase">
+		<header class="b-components__showcase__title">
+			Компоненты «Прогрессбар» и «Кнопка»
+		</header>
+		<section class="b-components__showcase__content">
+
+			<div class="b-progress" data-value="0" data-max="100">
+				<div class="b-progress__bar"></div>
+			</div>
+
+			<section class="b-components__showcase__toolbar">
+				<a onclick="return SetProgressValue(document.querySelector('.b-progress'),0)" href="#" title="0%" class="b-button b-button_small">0%</a>
+				<span onclick="return SetProgressValue(document.querySelector('.b-progress'),20)" title="20%" class="b-button" tabindex="0">20%</span>
+				<button onclick="return SetProgressValue(document.querySelector('.b-progress'),57.19)" title="57.19%" class="b-button">57.19%</button>
+				<div onclick="return SetProgressValue(document.querySelector('.b-progress'),80)" title="80%" class="b-button" tabindex="0">80%</div>
+				<input onclick="return SetProgressValue(document.querySelector('.b-progress'),100)" type="button" title="100%" class="b-button b-button_big" value="100%" />
+			</section>
+
+		</section>
+	</article>
+</section>
+
+<script>
+function SetStar (node, star) {
+	node.className = 'b-rating b-rating_' + star;
+	return false;
+}
+
+function SetProgressValue (node, value) {
+	node.querySelector(".b-progress__bar").style.width = node.offsetWidth / node.getAttribute('data-max') * value + "px";
+	node.setAttribute('data-value', value);
+	return false;
+}
+
+SetProgressValue(document.querySelector('.b-progress'), 20);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* Mixins */
+.star-grey () {
+	background: url(../images/rating.png);
+}
+.star-gold () {
+	background: url(../images/rating.png) 0 -16px repeat-x;
+}
+
+/* Styles */
+.b-rating {
+	width: 80px;
+	height: 16px;
+
+	word-spacing: 0;
+	.star-grey();
+
+
+	&:before {
+		content: "";
+
+		display: block;
+
+		height: 100%;
+		margin: 0 0 -16px;
+
+		.star-gold();
+	}
+
+	&_0:before {
+		width: 0;
+	}
+	&_1:before {
+		width: 16px;
+	}
+	&_2:before {
+		width: 32px;
+	}
+	&_3:before {
+		width: 48px;
+	}
+	&_4:before {
+		width: 64px;
+	}
+	&_5:before {
+		width: 80px;
+	}
+
+
+	&__star {
+		display: none;
+		float: left;
+
+		width: 16px;
+		height: 16px;
+
+		.star-gold();
+
+
+		&:hover {
+			.star-gold();
+		}
+		&:hover ~ & {
+			.star-grey();
+		}
+	}
+
+
+	&:hover, &:hover>&:before {
+		background: none;
+	}
+	&:hover &__star {
+		display: block;
+	}
+}

@@ -1,0 +1,78 @@
+/* Mixins */
+.bg-gradient (@color1, @color2 : #e2e2e2, @color3 : #e5e5e5, @color4 : #a8a8a8) {
+	background-image: -ms-linear-gradient(@color1, @color2), -ms-linear-gradient(@color3, @color4);
+	background-image: -o-linear-gradient(@color1, @color2), -o-linear-gradient(@color3, @color4);
+	background-image: linear-gradient(@color1, @color2), linear-gradient(@color3, @color4);
+}
+
+/* Styles */
+.b-button {
+	font: bold 11px/18px sans-serif;
+
+	display: inline-block;
+
+	width: auto;
+	height: 18px;
+	padding: 0 18px;
+
+	cursor: pointer;
+	text-decoration: none;
+
+	color: #000;
+	border: 1px solid transparent;
+	border-radius: 6px;
+	outline: 0;
+	background-origin: padding-box, border-box;
+	background-clip: padding-box, border-box;
+	text-shadow: 0 1px 0 #F8F8F8;
+
+	.bg-gradient(#f2f2f2);
+
+
+	&:hover {
+		.bg-gradient(#fff, #eee);
+	}
+
+	&:active {
+		.bg-gradient(#ccc);
+	}
+
+	&:focus {
+		outline: 1px solid #29F;
+		outline-offset: 2px;
+	}
+
+	&:focus:active {
+		outline: 0;
+	}
+
+
+	&_small {
+		font: bold 10px/14px sans-serif;
+
+		height: 14px;
+
+		padding: 0 12px;
+	}
+
+	&_big {
+		font: bold 14px/22px sans-serif;
+
+		height: 22px;
+
+		padding: 0 22px;
+	}
+}
+
+button.b-button, input.b-button {
+	height: 20px;
+
+
+	&_small {
+		height: 16px;
+	}
+
+	&_big {
+		height: 24px;
+	}
+}
