@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Форма</title>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/page-form.css" />
+
+	<link rel="stylesheet" type="text/css" href="../css/page-form.css" />
+	<!--[if lte IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/page-form_ie.css" />
+	<![endif]-->
+</head>
+<body class="g-layout">
+	<header class="b-header">
+		<nav class="b-menu">
+			<ul class="b-menu__list">
+				<li class="b-menu__item">
+					<a href="#" title="" class="b-menu__item__link">
+						Личный кабинет
+					</a>
+				</li>
+				<li class="b-menu__item">
+					<a href="#" title="" class="b-menu__item__link">
+						Раздел 1
+					</a>
+				</li>
+				<li class="b-menu__item">
+					<a href="#" title="" class="b-menu__item__link">
+						Раздел 2
+					</a>
+				</li>
+				<li class="b-menu__item">
+					<a href="#" title="" class="b-menu__item__link">
+						Раздел 3
+					</a>
+				</li>
+				<li class="b-menu__item">
+					<a href="#" title="" class="b-menu__item__link">
+						Раздел 4
+					</a>
+				</li>
+				<li class="b-menu__item">
+					<a href="#" title="" class="b-menu__item__link">
+						Раздел 5
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="b-content">
+		<h1 class="b-content__title">Заполните форму</h1>
+
+		<ol class="b-indicator g-layout__col2">
+			<li class="b-indicator__step b-indicator__step_done">1</li>
+			<li class="b-indicator__step b-indicator__step_done">2</li>
+			<li class="b-indicator__step b-indicator__step_now">3</li>
+			<li class="b-indicator__step">4</li>
+			<li class="b-indicator__step">5</li>
+		</ol>
+
+		<form method="POST" action="" class="b-form">
+			<fieldset class="b-form__group">
+				<legend class="b-form__group__legend">Общая информация</legend>
+
+				<div class="b-form__fieldgroup g-layout__col1">
+					<label class="b-form__label" for="lName">Фамилия</label>
+					<input class="b-form__field" id="lName" name="lName" type="text" />
+				</div>
+
+				<div class="b-form__fieldgroup g-layout__col1">
+					<label class="b-form__label" for="name">Имя</label>
+					<input class="b-form__field" id="name" name="name" type="text" />
+				</div>
+
+				<div class="b-form__fieldgroup g-layout__col1">
+					<label class="b-form__label" for="sName">Отчество</label>
+					<input class="b-form__field" id="sName" name="sName" type="text" />
+				</div>
+
+				<div class="b-form__fieldgroup g-layout__col1">
+					<span class="b-form__label">Меняли фамилию?</span>
+					<input class="b-form__radio__hidden" id="lNameChangedTrue" name="lNameChanged" type="radio" value="true" />
+					<label class="b-form__radio" for="lNameChangedTrue">
+						Да
+					</label>
+					<input class="b-form__radio__hidden" id="lNameChangedFalse" name="lNameChanged" type="radio" value="false" checked="checked" />
+					<label class="b-form__radio" for="lNameChangedFalse">
+						Нет
+					</label>
+				</div>
+
+				<div class="b-form__fieldgroup g-layout__col1">
+					<span class="b-form__label">Пол</span>
+					<input class="b-form__radio__hidden" id="sexM" name="sex" type="radio" value="M" />
+					<label class="b-form__radio" for="sexM">
+						Муж
+					</label>
+					<input class="b-form__radio__hidden" id="sexF" name="sex" type="radio" value="F" />
+					<label class="b-form__radio" for="sexF">
+						Жен
+					</label>
+				</div>
+
+				<div class="b-form__fieldgroup g-layout__col1">
+					<label class="b-form__label" for="familyStatus">Семейное положение</label>
+					<select class="b-form__field" id="familyStatus" name="familyStatus">
+						<option selected="selected">Женат / Замужем</option>
+						<option>Холост / Не замужем</option>
+					</select>
+				</div>
+
+				<div class="b-form__fieldgroup g-layout__col1">
+					<label class="b-form__label" for="citizenship">Гражданство</label>
+					<select class="b-form__field" id="citizenship" name="citizenship">
+						<optgroup label="Страны Европы:">
+							<option>Австрия</option>
+							<option>Андорра</option>
+							<option>Албания</option>
+							<option>Беларусь</option>
+							<option>Бельгия</option>
+							<option>Болгария</option>
+							<option>Босния и Герцеговина</option>
+							<option>Ватикан</option>
+							<option>Великобритания</option>
+							<option>Венгрия</option>
+							<option>Германия</option>
+							<option>Гибралтар</option>
+							<option>Греция</option>
+							<option>Дания</option>
+							<option>Ирландия</option>
+							<option>Исландия</option>
+							<option>Испания</option>
+							<option>Италия</option>
+							<option>Латвия</option>
+							<option>Литва</option>
+							<option>Лихтенштейн</option>
+							<option>Люксембург</option>
+							<option>Македония</option>
+							<option>Мальта</option>
+							<option>Молдавия</option>
+							<option>Монако</option>
+							<option>Нидерланды</option>
+							<option>Норвегия</option>
+							<option>Польша</option>
+							<option>Португалия</option>
+							<option selected="selected">Российская Федерация</option>
+							<option>Румыния</option>
+							<option>Сан-Марино</option>
+							<option>Сербия и Черногория</option>
+							<option>Словакия</option>
+							<option>Словения</option>
+							<option>Украина</option>
+							<option>Фарерские острова</option>
+							<option>Финляндия</option>
+							<option>Франция</option>
+							<option>Хорватия</option>
+							<option>Черногория</option>
+							<option>Чехия</option>
+							<option>Швейцария</option>
+							<option>Швеция</option>
+							<option>«Шпицберген» Норвегия</option>
+							<option>Эстония</option>
+						</optgroup>
+						<optgroup label="Страны Северной Америки:">
+							<option>Гренландия</option>
+							<option>Канада</option>
+							<option>Мексика</option>
+							<option>Сен-Пьер и Микелон</option>
+							<option>США</option>
+						</optgroup>
+						<optgroup label="Страны Южной Америки:">
+							<option>Аргентина</option>
+							<option>Боливия</option>
+							<option>Бразилия</option>
+							<option>Венесуэла</option>
+							<option>Гайана</option>
+							<option>«Гвиана» Франция</option>
+							<option>Колумбия</option>
+							<option>Парагвай</option>
+							<option>Перу</option>
+							<option>Суринам</option>
+							<option>Уругвай</option>
+							<option>Фолклендские (Мальвинские) острова</option>
+							<option>Чили</option>
+							<option>Эквадор</option>
+							<option>«Южная Георгия» Великобритания</option>
+							<option>«Южные Сандвичевы острова» Фолклендские острова</option>
+						</optgroup>
+					</select>
+				</div>
+
+				<div class="b-form__fieldgroup g-layout__col1">
+					<span class="b-form__label">Дата рождения</span>
+					<select name="birthDay">
+						<option selected="selected">1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+						<option>13</option>
+						<option>14</option>
+						<option>15</option>
+						<option>16</option>
+						<option>17</option>
+						<option>18</option>
+						<option>19</option>
+						<option>20</option>
+						<option>21</option>
+						<option>22</option>
+						<option>23</option>
+						<option>24</option>
+						<option>25</option>
+						<option>26</option>
+						<option>27</option>
+						<option>28</option>
+						<option>29</option>
+						<option>30</option>
+						<option>31</option>
+					</select>
+					<select name="birthMonth">
+						<option selected="selected">января</option>
+						<option>февраля</option>
+						<option>марта</option>
+						<option>апреля</option>
+						<option>мая</option>
+						<option>июня</option>
+						<option>июля</option>
+						<option>августа</option>
+						<option>сентября</option>
+						<option>октября</option>
+						<option>ноября</option>
+						<option>декабря</option>
+					</select>
+					<select name="birthYear">
+						<option selected="selected">1970</option>
+						<option>1971</option>
+						<option>1972</option>
+						<option>1973</option>
+						<option>1974</option>
+						<option>1975</option>
+						<option>1976</option>
+						<option>1977</option>
+						<option>1978</option>
+						<option>1979</option>
+						<option>1980</option>
+						<option>1981</option>
+						<option>1982</option>
+						<option>1983</option>
+						<option>1984</option>
+						<option>1985</option>
+						<option>1986</option>
+						<option>1987</option>
+						<option>1988</option>
+						<option>1989</option>
+						<option>1990</option>
+						<option>1991</option>
+						<option>1992</option>
+						<option>1993</option>
+						<option>1994</option>
+						<option>1995</option>
+						<option>1996</option>
+						<option>1997</option>
+						<option>1998</option>
+						<option>1999</option>
+						<option>2000</option>
+						<option>2001</option>
+						<option>2002</option>
+						<option>2003</option>
+						<option>2004</option>
+						<option>2005</option>
+						<option>2006</option>
+						<option>2007</option>
+						<option>2008</option>
+						<option>2009</option>
+						<option>2010</option>
+						<option>2011</option>
+						<option>2012</option>
+						<option>2013</option>
+						<option>2014</option>
+						<option>2015</option>
+					</select>
+				</div>
+
+				<div class="b-form__fieldgroup g-layout__col3">
+					<label class="b-form__label" for="birthPlace">Место рождения</label>
+					<input class="b-form__field" id="birthPlace" name="birthPlace" type="text" />
+					<span class="b-form__hint">Например: Россия, Комсомольск-на-Амуре</span>
+				</div>
+
+			</fieldset>
+			<div class="b-form__controls">
+				<button class="b-form__button">&larr; Назад</button>
+				<input class="b-form__button b-form__button_submit" type="submit" value="Далее →" />
+			</div>
+		</form>
+	</main>
+
+	<aside class="b-sidebar">
+		<p class="b-sidebar__text">&#x2600;TutuRu — крупнейший сервис поиска, бронирования и покупки авиабилетов и ж/д билетов.</p>
+		<p class="b-sidebar__text">Наша цель проста — делать наших клиентов счастливыми, а их путешествия незабываемыми. Любое путешествие начинается с поиска подходящих билетов и бронирования гостиниц. А мы делаем это качественно, обеспечивая самую лучшую поддержку благодаря собственному контакт-центру.</p>
+	</aside>
+</body>
+</html>

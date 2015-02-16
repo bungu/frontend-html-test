@@ -1,4 +1,82 @@
 .g-layout {
-	width: 1024px;
+	max-width: 1024px;
 	margin: 0 auto;
+}
+
+.b-header {
+	padding: 0 10px;
+}
+
+.b-content {
+	padding: 0 10px;
+
+	&__title {
+		display: inline-block;
+		font: normal 24px/24px sans-serif;
+	}
+}
+
+.b-sidebar {
+	padding: 0 10px;
+
+	&__text {
+		font: normal 12px/18px sans-serif;
+	}
+}
+
+
+/* Adaptive */
+@media (min-width: 1024px) {
+	.g-layout {
+		display: -ms-flexbox; /* IE 10 fix */
+		display: flex;
+		flex-flow: row wrap;
+
+
+		&__col3 {
+			width: 100%;
+		}
+
+		&__col2 {
+			width: 66%;
+		}
+
+		&__col1 {
+			width: 33%;
+		}
+	}
+
+	.b-header {
+		order: 1;
+		flex: 1 100%;
+
+		padding: 0;
+		margin-left: 240px;
+	}
+
+	.b-content {
+		order: 3;
+		flex: 2;
+
+		padding: 0;
+
+
+		&__title {
+			margin-bottom: 0;
+		}
+	}
+
+	.b-sidebar {
+		order: 2;
+		flex: 3;
+
+		max-width: 200px;
+		margin-right: 40px;
+		padding: 0;
+
+
+		&__text {
+			margin: 16px 0 55px;
+		}
+	}
 }
