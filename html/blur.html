@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+	<title>Размытие изображения</title>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/page-components.css" />
+	<!--[if lte IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/page-components_ie.css" />
+	<![endif]-->
+	<style type="text/css">
+#imageToBlur {
+	-webkit-filter: blur(5px);
+	filter: blur(5px);
+}
+	</style>
+</head>
+<body class="g-layout">
+
+<section class="b-components">
+	<header class="b-components__showcase__title">
+		Способы размытия изображения
+	</header>
+
+	<article class="b-components__showcase">
+		<header class="b-components__showcase__title">
+			Размытие на бэкенде
+		</header>
+		<section class="b-components__showcase__content">
+
+			<img src="../images/apod-2015-02-16.png" alt="" />
+			<img src="../images/apod-2015-02-16_blur.png" alt="" />
+
+			<p>Изображение размывается до того, как передаётся клиенту.</p>
+			<h4>Поддержка:</h4>
+			<ul>
+				<li>Все браузеры.</li>
+			</ul>
+			<h4>Плюсы:</h4>
+			<ul>
+				<li>Можно добиться высокого качества размытия (зависит от библиотеки для работы с изображениями и алгоритма);</li>
+				<li>Не тратятся аппаратные ресурсы клиента на сложную операцию;</li>
+				<li>Высокая скорость отрисовки страницы.</li>
+			</ul>
+			<h4>Минусы:</h4>
+			<ul>
+				<li>Необходимо иметь оригинал изображения для внесения изменений;</li>
+				<li>Невозможно использовать анимацию размытия;</li>
+				<li>Если на странице размещены оригинал и изображение с фильтром, сервер получит два запроса вместо одного.</li>
+			</ul>
+		</section>
+	</article>
+
+	<article class="b-components__showcase">
+		<header class="b-components__showcase__title">
+			Размытие при помощи SVG
+		</header>
+		<section class="b-components__showcase__content">
+
+			<img src="../images/apod-2015-02-16.png" alt="" />
+			<svg width="320" height="250"><filter id="svg-blur"><feGaussianBlur stdDeviation="5" /></filter><image filter="url(#svg-blur)" id="svg-image" width="320" height="250" xlink:href="../images/apod-2015-02-16.png" /></svg>
+
+			<p>Изображение встраивается в SVG объект и размывается SVG-фильтрами.</p>
+			<h4>Поддержка:</h4>
+			<ul>
+				<li>IE10+</li>
+				<li>Firefox</li>
+				<li>Chrome</li>
+				<li>Opera 9.5+</li>
+				<li>Safari</li>
+				<li>Доля среди пользователей: 83% по миру и 82.5% по России</li>
+			</ul>
+			<h4>Плюсы:</h4>
+			<ul>
+				<li>Можно использовать анимацию размытия;</li>
+				<li>Используется одно изображение;</li>
+				<li>Высокая скорость отрисовки при включенном аппаратном ускорении (только современные браузеры);</li>
+				<li>Firefox умеет размывать HTML элементы.</li>
+			</ul>
+			<h4>Минусы:</h4>
+			<ul>
+				<li>Низкое качество размытия;</li>
+				<li>При изменении DOM вызывается repaint (может сказаться на производительности).</li>
+			</ul>
+		</section>
+	</article>
+
+	<article class="b-components__showcase">
+		<header class="b-components__showcase__title">
+			Размытие при отрисовке на Canvas
+		</header>
+		<section class="b-components__showcase__content">
+
+			<img src="../images/apod-2015-02-16.png" alt="" />
+
+			<p>Изображение отрисовывается в отдельном контексте (canvas). Пример нельзя запустить локально из-за политики безопасности. Пример библиотеки для размытия: <a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html">StackBlur</a></p>
+			<h4>Поддержка:</h4>
+			<ul>
+				<li>IE9+</li>
+				<li>Firefox</li>
+				<li>Chrome</li>
+				<li>Opera 9.5+</li>
+				<li>Safari</li>
+				<li>Доля среди пользователей: 94% по миру и 86% по России</li>
+			</ul>
+			<h4>Плюсы:</h4>
+			<ul>
+				<li>Можно использовать анимацию размытия;</li>
+				<li>Размытие выполняется на отдельном контексте, который можно использовать как изображение.</li>
+				<li>Относительно высокая скорость размытия при использовании контекста WebGL.</li>
+			</ul>
+			<h4>Минусы:</h4>
+			<ul>
+				<li>Низкое качество размытия;</li>
+				<li>Низкая скорость отрисовки в 2D контексте;</li>
+				<li>WebGL поддерживают не все браузеры (IE11+, Opera 12+, Safari 5.1+, Firefox, Chrome);</li>
+				<li>Необходимо загружать код JavaScript, выполняющий размытие;</li>
+				<li>Изображение и скрипт должны быть в одном домене (Same-origin policy).</li>
+			</ul>
+		</section>
+	</article>
+
+	<article class="b-components__showcase">
+		<header class="b-components__showcase__title">
+			Размытие при помощи CSS filter
+		</header>
+		<section class="b-components__showcase__content">
+
+			<img src="../images/apod-2015-02-16.png" alt="" />
+			<img id="imageToBlur" style="width:320;filter:progid:DXImageTransform.Microsoft.Blur(Strength=5);" src="../images/apod-2015-02-16.png" alt="" />
+
+			<p>Изображение размывается специальным CSS-свойством filter, которое по сути является SVG-фильтром. Этот способ рекомендован W3C.</p>
+			<h4>Поддержка:</h4>
+			<ul>
+				<li>до IE9 включительно с применением фильтров DirectX</li>
+				<li>Firefox 34+</li>
+				<li>Chrome</li>
+				<li>Opera 15+</li>
+				<li>Safari 6+</li>
+				<li>Доля среди пользователей: 74.6% по миру и 67% по России</li>
+			</ul>
+			<h4>Плюсы:</h4>
+			<ul>
+				<li>Можно использовать анимацию размытия;</li>
+				<li>Используется одно изображение;</li>
+				<li>Высокая скорость отрисовки при включенном аппаратном ускорении;</li>
+			</ul>
+			<h4>Минусы:</h4>
+			<ul>
+				<li>Низкое качество размытия;</li>
+				<li>При изменении DOM вызывается repaint (может сказаться на производительности).</li>
+			</ul>
+		</section>
+	</article>
+
+	<article class="b-components__showcase">
+		<header class="b-components__showcase__title">
+			Вывод
+		</header>
+		<section class="b-components__showcase__content">
+			<p>На данный момент самой лучшей поддержкой среди пользователей обладает способ размытия на бэкенде. CSS свойство filter является рекомендованным W3C, поэтому можно ожидать в ближайшем будущем его широкое распространение. В боевых задачах я бы воспользовался одним из этих двух способов.</p>
+		</section>
+	</article>
+</section>
+</body>
+</html>
