@@ -5,6 +5,7 @@
 	<title>Компоненты</title>
 	<link rel="stylesheet" type="text/css" href="../css/normalize.min.css" />
 	<link rel="stylesheet" type="text/css" href="../css/page-components.css" />
+	<link rel="stylesheet" type="text/css" href="../css/b-rating_alt.css" />
 	<!--[if lte IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<link rel="stylesheet" type="text/css" href="../css/page-components_ie.css" />
@@ -79,11 +80,48 @@
 
 		</section>
 	</article>
+
+	<article class="b-components__showcase b-components__showcase_light">
+		<header class="b-components__showcase__title">
+			Альтернативный стиль компонента «Рейтинг»
+		</header>
+		<section class="b-components__showcase__content">
+
+			<div class="b-rating b-rating_alt b-rating_2">
+				<div class="b-rating_alt__bar"></div>
+				<a onclick="return SetStar2_User(this)" href="#" title="1" class="b-rating__star b-rating_alt__star"></a>
+				<a onclick="return SetStar2_User(this)" href="#" title="2" class="b-rating__star b-rating_alt__star"></a>
+				<a onclick="return SetStar2_User(this)" href="#" title="3" class="b-rating__star b-rating_alt__star b-rating_alt__star_user"></a>
+				<a onclick="return SetStar2_User(this)" href="#" title="4" class="b-rating__star b-rating_alt__star"></a>
+				<a onclick="return SetStar2_User(this)" href="#" title="5" class="b-rating__star b-rating_alt__star"></a>
+			</div>
+
+			<section class="b-components__showcase__toolbar">
+				<a onclick="return SetStar2(document.querySelector('.b-rating_alt__bar'), 0)" href="#" title="0" class="b-button">0</a>
+				<span onclick="return SetStar2(document.querySelector('.b-rating_alt__bar'), 2.5)" title="3" class="b-button" tabindex="0">2.5</span>
+				<span onclick="return SetStar2(document.querySelector('.b-rating_alt__bar'), 3)" title="3" class="b-button" tabindex="0">3</span>
+				<button onclick="return SetStar2(document.querySelector('.b-rating_alt__bar'), 5)" title="5" class="b-button">5</button>
+			</section>
+
+		</section>
+	</article>
 </section>
 
 <script>
 function SetStar (node, star) {
 	node.className = 'b-rating b-rating_' + star;
+	return false;
+}
+function SetStar2 (node, star) {
+	node.style.width = (star/5)*190 + 'px';
+	return false;
+}
+function SetStar2_User (node, star) {
+	var stars = node.parentNode.querySelectorAll(".b-rating_alt__star");
+	for (var i = 0; i < stars.length; i++) {
+		stars[i].className = "b-rating__star b-rating_alt__star";
+	}
+	node.className = "b-rating__star b-rating_alt__star b-rating_alt__star_user";
 	return false;
 }
 
